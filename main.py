@@ -4,20 +4,32 @@ def problemSolver(lockerNumber, kidsNumber):
     lockerOpen = '|'
     lockerClosed = 'x'
     lockers = []
-    counter = 0
+    openCounter = 0
+    
 
     for i in range(lockerNumber):
-        lockers.append(lockerOpen)
+        lockers.append(lockerClosed)
 
     for j in range(kidsNumber):
+        indexCounter = 0
         for v in lockers:
             # print(lockers.index(v))
-            # print(j)
-            if lockers.index(v)+1 % j+1 == 0:
-                print('replace')
+            mod = (indexCounter+1) % (j+1)
+            
+            if mod == 0:
+                if v == lockerOpen:
+                    lockers[indexCounter] = lockerClosed
+                    openCounter -= 1
+                if v == lockerClosed:
+                    lockers[indexCounter] = lockerOpen
+                    openCounter += 1
+            print(v, indexCounter)
+            
+
+            indexCounter += 1
 
                 
     print(lockers)
-    print(counter)
+    print(openCounter)
 
-problemSolver(10, 10)
+problemSolver(100, 100)   
