@@ -10,9 +10,11 @@ def problemSolver(lockerNumber, kidsNumber):
         lockers.append(lockerOpen)
 
     for j in range(kidsNumber):
-        lockersNew =  np.arange(1, 10, int(j+1))
-        print(lockersNew)
-       
+        for v in lockers:
+            # print(lockers.index(v))
+            # print(j)
+            if lockers.index(v)+1 % j+1 == 0:
+                print('replace')
 
                 
     print(lockers)
